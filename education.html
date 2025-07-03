@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MY EDUCATION</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-soft-brown: #d9c8b6;
+      --brown-dark: #4e342e;
+      --brown-medium: #8e7f74;
+      --text-light: #f7f5f3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-soft-brown);
+      color: var(--brown-dark);
+      padding-bottom: 40px;
+    }
+
+    h1{
+      text-align:center; font-weight:700; color:var(--brown-dark);
+      font-size:72px;
+      padding-top: 100px;  /* ✅ Tambah jarak dari button */
+      margin-top: 0;
+      margin-bottom:30px;
+      text-transform:uppercase;
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 20px;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: var(--brown-dark);
+  color: var(--text-light);
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px; /* Bentuk bulat lembut */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background: var(--brown-medium);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+
+    .education-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .edu-card {
+      text-align: center;
+      background-color: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .edu-card:hover {
+      transform: scale(1.03);
+    }
+
+    .edu-label {
+      background-color: var(--brown-dark);
+      color: white;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .edu-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .edu-card:hover .edu-image {
+      transform: scale(1.08) rotate(1deg);
+    }
+
+    .edu-description {
+      background-color: var(--brown-medium);
+      color: var(--text-light);
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.6;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      transition: background-color 0.4s ease, transform 0.3s ease;
+    }
+
+    .edu-card:hover .edu-description {
+      background-color: var(--brown-dark);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 60px;
+        margin-top: 80px;
+      }
+      .edu-label {
+        font-size: 14px;
+      }
+      .edu-description {
+        font-size: 13px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navigation Buttons -->
+  <nav class="top-buttons">
+    <a href="index.html" class="icon-button">HOME</a>
+    <a href="aboutme.html" class="icon-button">ME</a>
+    <a href="family.html" class="icon-button">FAMILY</a>
+    <a href="cat.html" class="icon-button">CAT</a>
+    <a href="friends.html" class="icon-button">FRIENDS</a>
+    <a href="education.html" class="icon-button">EDUCATION</a>
+    <a href="gallery.html" class="icon-button">GALLERY</a>
+    <a href="contact.html" class="icon-button">CONTACT</a>
+  </nav>
+
+<!-- Main Title -->
+<h1>MY EDUCATION</h1>
+
+<!-- Education Table -->
+<div class="education-table">
+  <div class="edu-card">
+    <div class="edu-label">PRIMARY SCHOOL</div>
+    <img src="images/skpc.jpg" alt="Primary School" class="edu-image" />
+    <div class="edu-description">
+      I began my educational journey at Sekolah Kebangsaan Pulai Chondong. It was here I learned the basics of reading, writing, and arithmetic, and built my earliest friendships and school memories that still stay close to my heart.
+    </div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-label">HIGH SCHOOL</div>
+    <img src="images/msmp.jpg" alt="High School" class="edu-image" />
+    <div class="edu-description">
+      My teenage years were spent at Maktab Sultan Muhammad Petra, where I developed my academic strengths and explored extracurricular activities. This phase shaped my discipline, leadership skills, and love for learning.
+    </div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-label">UNIVERSITY</div>
+    <img src="images/uitm.jpg" alt="University" class="edu-image" />
+    <div class="edu-description">
+      I currently study at Universiti Teknologi MARA (UiTM). Here, I am pursuing higher education and gaining professional knowledge in my chosen field. UiTM has opened up many opportunities and inspired me to achieve my goals.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

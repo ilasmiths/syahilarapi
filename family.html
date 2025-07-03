@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MY FAMILY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-soft-brown: #d9c8b6;
+      --brown-dark: #4e342e;
+      --brown-medium: #8e7f74;
+      --text-light: #f7f5f3;
+      --bookmark-color: #a98d78;
+      --bookmark-text: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-soft-brown);
+      color: var(--brown-dark);
+      overflow-x: hidden;
+    }
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  color: var(--brown-dark);
+  font-size: 72px; /* Besarkan sedikit */
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+
+    .top-buttons {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 20px;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: var(--brown-dark);
+  color: var(--text-light);
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px; /* Bentuk bulat lembut */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background: var(--brown-medium);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+
+    .gallery-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .gallery-item {
+      width: 280px;
+      background-color: #fff8f0;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 18rem;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    .label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 40px;
+      background-color: var(--bookmark-color);
+      color: var(--bookmark-text);
+      font-size: 13px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 40px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+    }
+
+    .description-box {
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      background-color: #fff;
+      color: #4e342e;
+      border-top: 1px solid #e2d3c3;
+    }
+
+    /* Aesthetic MP3 Player */
+    .audio-wrapper {
+      text-align: center;
+      margin: 40px auto 80px;
+      padding: 20px;
+      background: #fef9f5;
+      border-radius: 20px;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .audio-title {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #4e342e;
+      font-style: italic;
+    }
+
+    .audio-player {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #audio {
+      display: none;
+    }
+
+    #play-btn {
+      background-color: #a98d78;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #play-btn:hover {
+      background-color: #8e7f74;
+    }
+
+    .progress-bar {
+      position: relative;
+      width: 200px;
+      height: 8px;
+      background-color: #e6d9cd;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+
+    #progress-fill {
+      height: 100%;
+      background-color: #4e342e;
+      width: 0%;
+      transition: width 0.2s ease;
+      border-radius: 50px;
+    }
+
+    #current-time,
+    #duration {
+      font-size: 12px;
+      color: #6d4c41;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 40px; }
+
+      .gallery-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery-item {
+        width: 90%;
+      }
+
+      .gallery-image {
+        height: 250px;
+      }
+
+      .label {
+        width: 90px;
+        height: 35px;
+        font-size: 12px;
+        line-height: 35px;
+      }
+
+      .description-box {
+        font-size: 13px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Buttons -->
+  <nav class="top-buttons">
+    <a href="index.html" class="icon-button">HOME</a>
+    <a href="aboutme.html" class="icon-button">ME</a>
+    <a href="family.html" class="icon-button">FAMILY</a>
+    <a href="cat.html" class="icon-button">CAT</a>
+    <a href="friends.html" class="icon-button">FRIENDS</a>
+    <a href="education.html" class="icon-button">EDUCATION</a>
+    <a href="gallery.html" class="icon-button">GALLERY</a>
+    <a href="contact.html" class="icon-button">CONTACT</a>
+  </nav>
+
+<!-- Main Title -->
+<h1>MY FAMILY</h1>
+
+<!-- Gallery Row -->
+<div class="gallery-row">
+  <div class="gallery-item">
+    <div class="gallery-image" style="background-image: url('images/family1.jpg');">
+      <div class="label">parents 👫🏽</div>
+    </div>
+    <div class="description-box">This is a precious photo of my beloved parents who always support me.</div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="gallery-image" style="background-image: url('images/mymom.jpg');">
+      <div class="label">mummy 🫀</div>
+    </div>
+    <div class="description-box">My lovely mom — the strongest woman and my biggest inspiration.</div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="gallery-image" style="background-image: url('images/rayalagi.jpg');">
+      <div class="label">raya 🌦️</div>
+    </div>
+    <div class="description-box">A sweet moment captured during the Raya celebration with the whole family.</div>
+  </div>
+</div>
+
+<!-- MP3 Player -->
+<div class="audio-wrapper">
+  <p class="audio-title">🎶 Family Memory</p>
+  <div class="audio-player">
+    <button id="play-btn">▶️</button>
+    <div class="progress-bar">
+      <div id="progress-fill"></div>
+    </div>
+    <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+    <audio id="audio" preload="metadata">
+      <source src="audio/family.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</div>
+
+<script>
+  const audio = document.getElementById("audio");
+  const playBtn = document.getElementById("play-btn");
+  const progressFill = document.getElementById("progress-fill");
+  const currentTimeEl = document.getElementById("current-time");
+  const durationEl = document.getElementById("duration");
+
+  let isPlaying = false;
+
+  playBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      audio.pause();
+      playBtn.textContent = "▶️";
+    } else {
+      audio.play();
+      playBtn.textContent = "⏸️";
+    }
+  });
+
+  audio.addEventListener("loadedmetadata", () => {
+    const duration = formatTime(audio.duration);
+    durationEl.textContent = duration;
+  });
+
+  audio.addEventListener("timeupdate", () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    progressFill.style.width = percent + "%";
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
+  function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? "0" + secs : secs}`;
+  }
+</script>
+
+</body>
+</html>

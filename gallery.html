@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MY GALLERY</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg-soft-brown: #d9c8b6;
+      --brown-dark: #4e342e;
+      --brown-medium: #8e7f74;
+      --text-light: #f7f5f3;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-soft-brown);
+      color: var(--brown-dark);
+      padding: 30px;
+    }
+
+    h1 {
+      text-align:center; font-weight:700; color:var(--brown-dark);
+      font-size:72px;
+      padding-top: 100px;  /* ✅ Tambah jarak dari button */
+      margin-top: 0;
+      margin-bottom:30px;
+      text-transform:uppercase;
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 20px;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+
+    .icon-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      background: var(--brown-dark);
+      color: var(--text-light);
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .icon-button:hover {
+      background: var(--brown-medium);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    .gallery-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    .scroll-row {
+      display: flex;
+      width: fit-content;
+      animation: scroll-left 40s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .scroll-row.reverse {
+      display: flex;
+      animation: scrollLoopReverse 40s linear infinite;
+    }
+
+    .scroll-inner { display: flex; }
+
+    @keyframes scrollLoopReverse {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 300px;
+      margin-right: 20px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .card img,
+    .card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      animation: floatCard 40s linear infinite;
+    }
+
+    @keyframes floatCard {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    #audioControl {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      border: 2px solid var(--brown-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      font-size: 20px;
+      color: var(--brown-dark);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 60px; margin-top: 80px; }
+      .top-buttons {
+        position: static;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio -->
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="/sound/sound1.mp3" type="audio/mpeg" />
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+
+  <!-- Audio Control Button -->
+  <div id="audioControl" aria-label="Toggle background music">🔊</div>
+
+  <!-- Top Navigation Buttons -->
+  <nav class="top-buttons">
+    <a href="index.html" class="icon-button">HOME</a>
+    <a href="aboutme.html" class="icon-button">ME</a>
+    <a href="family.html" class="icon-button">FAMILY</a>
+    <a href="cat.html" class="icon-button">CAT</a>
+    <a href="friends.html" class="icon-button">FRIENDS</a>
+    <a href="education.html" class="icon-button">EDUCATION</a>
+    <a href="gallery.html" class="icon-button">GALLERY</a>
+    <a href="contact.html" class="icon-button">CONTACT</a>
+  </nav>
+
+  <h1>My Gallery</h1>
+
+  <!-- Scroll Atas -->
+  <div class="gallery-container">
+    <div class="scroll-row">
+      <div class="card"><video src="video1.mp4" muted autoplay loop playsinline></video></div>
+      <div class="card"><video src="video2.mp4" muted autoplay loop playsinline></video></div>
+      <div class="card"><img src="images/gambar3.jpg" alt="Gambar 3"></div>
+      <div class="card"><video src="video3.mp4" muted autoplay loop playsinline></video></div>
+      <div class="card"><img src="images/gambar4.jpg" alt="Gambar 4"></div>
+      <div class="card"><video src="video4.mp4" muted autoplay loop playsinline></video></div>
+      <div class="card"><video src="video6.mp4" muted autoplay loop playsinline></video></div>
+
+      <!-- Duplicate -->
+      <div class="card"><video src="video1.mp4" muted autoplay loop playsinline></video></div>
+      <div class="card"><video src="video2.mp4" muted autoplay loop playsinline></video></div>
+      <div class="card"><img src="images/gambar3.jpg" alt="Gambar 3"></div>
+      <div class="card"><video src="video3.mp4" muted autoplay loop playsinline></video></div>
+      <div class="card"><img src="images/gambar4.jpg" alt="Gambar 4"></div>
+      <div class="card"><video src="video4.mp4" muted autoplay loop playsinline></video></div>
+      <div class="card"><video src="video6.mp4" muted autoplay loop playsinline></video></div>
+    </div>
+  </div>
+
+  <!-- Scroll Bawah -->
+  <div class="gallery-container" style="margin-top: 30px;">
+    <div class="scroll-row reverse">
+      <div class="scroll-inner">
+        <div class="card"><img src="images/gambar9.jpg" alt="Gambar 9"></div>
+        <div class="card"><video src="video7.mp4" muted autoplay loop playsinline></video></div>
+        <div class="card"><img src="images/gambar10.jpg" alt="Gambar 10"></div>
+        <div class="card"><video src="video8.mp4" muted autoplay loop playsinline></video></div>
+        <div class="card"><img src="images/gambar13.jpg" alt="Gambar 13"></div>
+        <div class="card"><video src="video9.mp4" muted autoplay loop playsinline></video></div>
+        <div class="card"><img src="images/gambar14.jpg" alt="Gambar 14"></div>
+        <div class="card"><img src="images/gambar15.jpg" alt="Gambar 15"></div>
+        <div class="card"><video src="video10.mp4" muted autoplay loop playsinline></video></div>
+      </div>
+      <!-- Duplicate -->
+      <div class="scroll-inner">
+        <div class="card"><img src="images/gambar9.jpg" alt="Gambar 9"></div>
+        <div class="card"><video src="video7.mp4" muted autoplay loop playsinline></video></div>
+        <div class="card"><img src="images/gambar10.jpg" alt="Gambar 10"></div>
+        <div class="card"><video src="video8.mp4" muted autoplay loop playsinline></video></div>
+        <div class="card"><img src="images/gambar13.jpg" alt="Gambar 13"></div>
+        <div class="card"><video src="video9.mp4" muted autoplay loop playsinline></video></div>
+        <div class="card"><img src="images/gambar14.jpg" alt="Gambar 14"></div>
+        <div class="card"><img src="images/gambar15.jpg" alt="Gambar 15"></div>
+        <div class="card"><video src="video10.mp4" muted autoplay loop playsinline></video></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Audio Control -->
+  <script>
+    const audio = document.getElementById("bgMusic");
+    const btn = document.getElementById("audioControl");
+
+    btn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = "🔊";
+      } else {
+        audio.pause();
+        btn.textContent = "🔇";
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ILASMITHS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-soft-brown: #d9c8b6;
+      --brown-dark: #4e342e;
+      --brown-medium: #8e7f74;
+      --text-light: #f7f5f3;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-soft-brown);
+      color: var(--brown-dark);
+      overflow-x: hidden;
+    }
+
+    .flower {
+      position: absolute;
+      animation: float 20s infinite linear;
+      opacity: 0.25;
+    }
+    .small  { width: 30px; }
+    .medium { width: 50px; }
+    .large  { width: 70px; }
+    .slow   { animation-duration: 30s; }
+    .fast   { animation-duration: 12s; }
+
+    @keyframes float {
+      0%   { transform: translateY(100%); }
+      100% { transform: translateY(-1200px); }
+    }
+
+    .corner-teddy {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      opacity: 0.8;
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 20px;
+      z-index: 999;
+    }
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: var(--brown-dark);
+  color: var(--text-light);
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px; /* Bentuk bulat lembut */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background: var(--brown-medium);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      padding: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .right {
+      flex: 2;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .photo-stack {
+      position: relative;
+      width: 420px;
+      height: 600px;
+      cursor: pointer;
+    }
+    .photo-stack img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 10px solid var(--brown-medium);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 3;
+    }
+
+    .title {
+      font-size: 120px;
+      line-height: 1;
+      color: var(--brown-dark);
+      margin-bottom: 30px;
+      font-weight: 700;
+      animation: wiggle 2s infinite ease-in-out;
+    }
+
+    .description {
+      font-size: 20px;
+      max-width: 650px;
+      line-height: 1.7;
+      text-align: justify; /* Text justified */
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .container { flex-direction: column; padding: 20px; }
+      .title { font-size: 72px; text-align: center; }
+      .right { align-items: center; text-align: center; }
+      .photo-stack {
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <nav class="top-buttons">
+    <a href="index.html" class="icon-button">HOME</a>
+    <a href="aboutme.html" class="icon-button">ME</a>
+    <a href="family.html" class="icon-button">FAMILY</a>
+    <a href="cat.html" class="icon-button">CAT</a>
+    <a href="friends.html" class="icon-button">FRIENDS</a>
+    <a href="education.html" class="icon-button">EDUCATION</a>
+    <a href="gallery.html" class="icon-button">GALLERY</a>
+    <a href="contact.html" class="icon-button">CONTACT</a>
+  </nav>
+
+  <div class="container">
+    <div class="left">
+      <div class="photo-stack" onclick="toggleImage()">
+        <img id="mainImage" src="images/ila1.jpg" alt="ilasmith's tiny" />
+      </div>
+    </div>
+
+    <div class="right">
+      <h1 class="title">hi there 💐!</h1>
+      <p class="description">
+        Hello i'm <strong>ilasmiths</strong> — My name is Sitinursyahila binti Rapi, a student with NATRiC ID 2023167593 from Pulai Chondong, Kelantan. I am a soft-spoken and graceful individual who values kindness, respect, and sincerity. As an introvert, I prefer calm and peaceful environments, and I enjoy spending time in quiet reflection or doing meaningful activities on my own.
+
+        Although I may be reserved, I am observant, responsible, and always committed to giving my best in everything I do. I believe that being kind, humble, and thoughtful is just as important as being capable. With a strong sense of self-discipline and a calm approach to challenges, I aim to grow both personally and professionally with each experience.
+      </p>
+      <p class="signature">
+        With warmth,<br/>
+        <strong>ILASMITHS</strong>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let toggle = false;
+    function toggleImage() {
+      const img = document.getElementById('mainImage');
+      img.src = toggle ? 'images/ila1.jpg' : 'images/ila2.jpg';
+      toggle = !toggle;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CONTACT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-soft-brown: #d9c8b6;
+      --brown-dark: #4e342e;
+      --brown-medium: #8e7f74;
+      --text-light: #f7f5f3;
+      --bookmark-color: #a98d78;
+      --bookmark-text: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-soft-brown);
+      color: var(--brown-dark);
+      overflow-x: hidden;
+    }
+
+    h1{
+      text-align:center; font-weight:700; color:var(--brown-dark);
+      font-size:72px;
+      padding-top: 100px;  /* ✅ Tambah jarak dari button */
+      margin-top: 0;
+      margin-bottom:30px;
+      text-transform:uppercase;
+    }
+
+    .top-buttons {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 20px;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+
+    .icon-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      background: var(--brown-dark);
+      color: var(--text-light);
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .icon-button:hover {
+      background: var(--brown-medium);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    .map-container {
+      max-width: 800px;
+      margin: 0 auto 80px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto 50px;
+      background-color: #fff8f0;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      font-size: 24px;
+      color: var(--brown-dark);
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--brown-dark);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d3c2b4;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact-form button {
+      background-color: var(--brown-dark);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: var(--brown-medium);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 40px; }
+
+      .map-container {
+        margin: 0 20px 60px;
+      }
+
+      .contact-container {
+        margin: 0 20px 40px;
+        padding: 20px;
+      }
+
+      iframe {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Buttons -->
+  <nav class="top-buttons">
+    <a href="index.html" class="icon-button">HOME</a>
+    <a href="aboutme.html" class="icon-button">ME</a>
+    <a href="family.html" class="icon-button">FAMILY</a>
+    <a href="cat.html" class="icon-button">CAT</a>
+    <a href="friends.html" class="icon-button">FRIENDS</a>
+    <a href="education.html" class="icon-button">EDUCATION</a>
+    <a href="gallery.html" class="icon-button">GALLERY</a>
+    <a href="contact.html" class="icon-button">CONTACT</a>
+  </nav>
+
+<!-- Main Title -->
+<h1>CONTACT</h1>
+
+<!-- Location Map (Pulai Chondong) -->
+<div class="map-container">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15820.654643719642!2d102.2186282!3d5.921706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b662b251a47f2b%3A0x367163ed5eeb9c0c!2sPulai%20Chondong%2C%20Kelantan!5e0!3m2!1sen!2smy!4v1720000000000!5m2!1sen!2smy" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- Contact Form -->
+<div class="contact-container">
+  <h2>Get in Touch</h2>
+  <form class="contact-form">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" rows="6" placeholder="Type your message..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+</body>
+</html>
